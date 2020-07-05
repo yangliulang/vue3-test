@@ -1,29 +1,17 @@
 <template>
   <div>
-    <h1>Vue 3.0</h1>
-    {{ state.isDestory }}
-    <HelloWord @setDistory="setDistory" v-if="!state.isDestory">
-      <p>solts p1</p>
-      <template v-slot:p2="{ name, age }">
-        <p>solts p2 {{ name }}{{ age }}</p>
-      </template>
-    </HelloWord>
+    <Vue3 :title="title" />
   </div>
 </template>
 <script>
-import HelloWord from '@/components/HelloWorld'
+import Vue3 from '@/components/Vue3'
 import { reactive } from 'vue'
 export default {
-  components: { HelloWord },
-  setup() {
-    const state = reactive({
-      isDestory: false,
-    })
-    const setDistory = () => {
-      // console.log('setDistory......')
-      state.isDestory = !state.isDestory
+  components: { Vue3 },
+  data() {
+    return {
+      title: 'Vue好学还是React好学?',
     }
-    return { state, setDistory }
   },
 }
 </script>
