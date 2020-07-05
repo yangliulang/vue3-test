@@ -1,17 +1,32 @@
 <template>
   <div>
-    <Vue3 :title="title" />
+    <CompositionApi v-if="!isDel" :title="title" :id="id">
+      我是CompositionApi的slot
+    </CompositionApi>
+    <button @click="setId">set id</button>
+    <button @click="isDel = !isDel">del Comp</button>
   </div>
 </template>
 <script>
-import Vue3 from '@/components/Vue3'
-import { reactive } from 'vue'
+import CompositionApi from '@/components/CompositionApi'
 export default {
-  components: { Vue3 },
+  components: {
+    CompositionApi,
+  },
   data() {
     return {
-      title: 'Vue好学还是React好学?',
+      title: 'Vue3好学嘛',
+      id: 100,
+      isDel: false,
     }
+  },
+  methods: {
+    change() {
+      this.title += '?'
+    },
+    setId() {
+      this.id += 1
+    },
   },
 }
 </script>
