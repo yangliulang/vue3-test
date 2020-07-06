@@ -1,5 +1,6 @@
 <template>
   <div>
+    <SubComp ref="subComp" />
     <h1 ref="h3">{{ title }}:{{ 1 }}</h1>
     <h2>props.id:{{ id }}</h2>
     <h3>state:{{ state }}</h3>
@@ -13,7 +14,6 @@
         {{ item }}
       </li>
     </ul>
-    <SubComp ref="subComp" />
   </div>
 </template>
 <script>
@@ -74,16 +74,16 @@ export default {
     const $this = getCurrentInstance()
 
     const { x, y } = usePosition()
-    console.log('usePosition', x, y)
-    setTimeout(() => {
-      theme.value = 'yellow'
-      refFromState.value = 'hahah'
-      console.log('getCurrentInstance->', $this)
-      console.log('listRefs->', toRefs(list))
-      console.log('refFromState->', refFromState.value)
-      console.log('refFromList->', refFromList.value)
-      console.log('unref->', unref(lis))
-    }, 2000)
+    // console.log('usePosition', x, y)
+    // setTimeout(() => {
+    //   theme.value = 'yellow'
+    //   refFromState.value = 'hahah'
+    //   console.log('getCurrentInstance->', $this)
+    //   console.log('listRefs->', toRefs(list))
+    //   console.log('refFromState->', refFromState.value)
+    //   console.log('refFromList->', refFromList.value)
+    //   console.log('unref->', unref(lis))
+    // }, 2000)
 
     onMounted(() => {
       //   console.log('onMounted...', subComp.value)
@@ -95,7 +95,7 @@ export default {
     })
 
     onUpdated(() => {
-      console.log('onUpdated...')
+      // console.log('onUpdated...')
     })
 
     onUnmounted(() => {
