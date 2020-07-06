@@ -1,11 +1,13 @@
 <template>
-  <TeleportComp />
+  <!-- <TeleportComp /> -->
+  <SuspenseComp />
 </template>
 <script>
-import TeleportComp from '@/components/Teleport.vue'
+// import TeleportComp from '@/components/Teleport.vue'
+import SuspenseComp from '@/components/Suspense.vue'
 export default {
   components: {
-    TeleportComp,
+    SuspenseComp,
   },
 }
 </script>
