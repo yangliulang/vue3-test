@@ -1,18 +1,20 @@
-import "../test";
-// import { createApp } from "vue";
-// import App from "./App.vue";
+// import "../vue2.0-reactivity";
+import MyPromise from "../promiseA.js";
 
-// const app = createApp(App);
+const promise = new MyPromise((resolve, reject) => {
+  resolve("hello");
+});
+const promise2 = promise.then(data => {
+  return new MyPromise((resolve, reject) => {
+    reject("hello");
+  });
+});
 
-// app.mount("#app");
-// const app = createApp(App)
-// 3.0 去掉了filter使用，推荐使用计算属性和方法实现
-// app.config.isCustomElement = (tag) => tag.startsWith('app-')
-// app.use(/* ... */)
-// app.mixin(/* ... */)
-// app.component(/* ... */)
-// app.directive(/* ... */)
-
-// app.config.globalProperties.customProperty = () => {}
-
-// app.mount(App, '#app')
+promise2.then(
+  ret => {
+    console.log("success", ret);
+  },
+  err => {
+    console.log("--error", err);
+  }
+);
